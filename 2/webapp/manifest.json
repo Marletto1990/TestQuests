@@ -1,0 +1,121 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "Gists.Test2",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "Gists.Test2.view.View1",
+			"type": "XML",
+			"async": true,
+			"id": "View1"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "Gists.Test2.i18n.i18n"
+				}
+			},
+			"main": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/main.json"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "Gists.Test2.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"pattern": "RouteView1",
+					"name": "RouteView1",
+					"target": "targetView1"
+				},
+				{
+					"pattern": "RouteView2",
+					"name": "RouteView2",
+					"target": "targetView2"
+				},
+				{
+					"pattern": "RouteView3",
+					"name": "RouteView3",
+					"target": "targetView3"
+				}
+			],
+			"targets": {
+				"app": {
+					"viewName": "App"
+				},
+				"targetView1": {
+					"viewName": "View1",
+					"parent": "app",
+					"viewLevel": 1
+				},
+				"targetView2": {
+					"viewName": "View2",
+					"parent": "targetView1",
+					"viewLevel": 2
+				},
+				"targetView3": {
+					"viewName": "targetView2",
+					"parent": "app",
+					"viewLevel": 3
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Test2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "devDependencies": {
+    "express": "^4.15.4",
+    "http-proxy-middleware": "^0.17.4"
+  },
+  "scripts": {
+    "build": "ui5 build --clean-dest --include-task=generateManifestBundle generateCachebusterInfo"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ui5-builder-webide-extension"
+    ]
+  },
+  "private": "true",
+  "dependencies": {
+    "proxy-middleware": "^0.15.0"
+  }
+}
