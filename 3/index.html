@@ -1,0 +1,57 @@
+<script language="JavaScript" type="text/javascript">
+  this.old_date = 0;
+
+  function start_time() {
+    let this_date = new Date();
+    start_time_interval = setInterval(function () {
+      this.new_date = new Date() - this_date + this.old_date;
+      let ms = Math.abs(Math.floor(new_date / 10) % 60); //milliseconds
+      let sec = Math.abs(Math.floor(new_date / 1000) % 60); //sek
+      let min = Math.abs(Math.floor(new_date / 1000 / 60) % 60); //min
+      let hours = Math.abs(Math.floor(new_date / 1000 / 60 / 60) % 24); //hours
+      if (ms.toString().length == 1) ms = '0' + ms;
+      if (sec.toString().length == 1) sec = '0' + sec;
+      if (min.toString().length == 1) min = '0' + min;
+      if (hours.toString().length == 1) hours = '0' + hours;
+      document.MyForm.stopwatch.value = (hours + ':' + min + ':' + sec + '.' + ms);
+    }, 10);
+  };
+
+  function handlePause() {
+    clearInterval(start_time_interval);
+    this.old_date = this.new_date;
+    document.MyForm.start.disabled = false;
+  };
+
+  function handleStop() {
+    clearInterval(start_time_interval);
+    ms = 0, sec = 0, min = 0, hours = 0;
+    readout = '00:00:00.00';
+    document.MyForm.stopwatch.value = readout;
+    this.old_date = 0;
+    document.MyForm.start.disabled = false;
+  }
+
+  function handleStart() {
+    start_time();
+    document.MyForm.start.disabled = true;
+  }
+  window.addEventListener('load', function () {
+    start_time()
+  })
+</script>
+<style>
+  #Centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+</style>
+<div id="Centered">
+  <form name=MyForm>
+    <input name=stopwatch size=10 value="00:00:00">
+    <input type=button value="Стоп" onclick="handleStop()">
+    <input type=button value="Пауза" onclick="handlePause()">
+    <input name=start type=button value="Старт" onclick="handleStart()" disabled>
+  </form>
+</div>
