@@ -58,8 +58,7 @@
 				}
 			},
 			"main": {
-				"type": "sap.ui.model.json.JSONModel",
-				"uri": "model/main.json"
+				"type": "sap.ui.model.json.JSONModel"
 			}
 		},
 		"resources": {

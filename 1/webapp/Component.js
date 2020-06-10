@@ -20,6 +20,8 @@ sap.ui.define([
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
+			this.getModel('main').loadData("https://api.github.com/gists/public");
+
 			// enable routing
 			this.getRouter().initialize();
 
