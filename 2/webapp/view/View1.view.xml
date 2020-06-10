@@ -1,0 +1,34 @@
+<mvc:View controllerName="Gists.Test2.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Table id="GistsTable"
+						items="{
+							path: 'main>/',
+							factory: '.gistsRowFactory'}">
+							<headerToolbar>
+								<Toolbar>
+									<Label  text="Таблица gist-файлов"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column
+									width="30%" demandPopin="true">
+									<Text text="{i18n>filename}" />
+								</Column>
+								<Column width="30%" demandPopin="true">
+									<Text text="{i18n>language}" />
+								</Column>
+								<Column demandPopin="true">
+									<Text text="{i18n>raw_url}" />
+								</Column>
+							</columns>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
