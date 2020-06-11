@@ -1,0 +1,7 @@
+
+<StandardListItem
+  xmlns="sap.m"
+  title="{main>text}"
+  description="кликов по ссылке : {main>click}"
+  type="Navigation"
+  press="onPress"/>

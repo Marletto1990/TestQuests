@@ -1,0 +1,25 @@
+<script language="JavaScript" type="text/javascript">
+  function Test4() {
+    this._x = 1;
+
+    var foo = {
+      _x: 2,
+      bar: function () {
+        return this._x;
+      },
+    };
+
+    console.log('1. ', foo.bar());
+    baz = foo.bar;
+    console.log('2. ', foo.bar());
+
+    setTimeout(function () {
+      console.log('3. ', baz());
+    }, 0);
+
+    this._x = 4;
+  }
+  window.addEventListener('load', function () {
+    Test4();
+  });
+</script>
