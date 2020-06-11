@@ -20,8 +20,10 @@ sap.ui.define([
 				let sNewPath = sPath.split('/');
 				sNewPath.pop();
 				oList.bindAggregation('items', 'main>' + sPath + '/next/', oTemplate);
-
-				this.previos = 'main>' + sNewPath.join('/') + '/';
+				if (!this.previos) {
+					this.previos = [];
+				}
+				this.previos.unshift('main>' + sNewPath.join('/') + '/');
 			}
 		},
 		_getItemTemplate() {
@@ -34,10 +36,10 @@ sap.ui.define([
 			let oList = this.byId('myList');
 			let sPath = oList.getBindingInfo('items').path;
 			let oMainModel = this.getView().getModel('main');
-			if (this.previos) {
+			if (this.previos && this.previos.length > 0) {
 				let oTemplate = this._getItemTemplate();
-				oList.bindAggregation('items', this.previos, oTemplate);
-				this.position
+				oList.bindAggregation('items', this.previos[0], oTemplate);
+				this.previos.shift();
 			}
 		}
 	});
