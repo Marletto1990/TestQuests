@@ -11,9 +11,7 @@ sap.ui.define([
 			this.oMainModel = this.getView().getModel('main');
 		},
 		gistsRowFactory(sId, oContext) {
-			let oModel = oContext.getModel(),
-				sPath = oContext.getPath(),
-				oFiles = oModel.getProperty(sPath + '/files'),
+			let oFiles = oContext.getProperty('files'),
 				aCells = [
 					new Text({
 						text: Object.values(oFiles)[0].filename
