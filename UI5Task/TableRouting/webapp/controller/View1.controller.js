@@ -6,12 +6,15 @@ sap.ui.define([
 
 	return Controller.extend("QuickStartApplication.controller.View1", {
 		onInit: function () {
-			//this.Router = UIComponent.getRouterFor(this);
+
 		},
-		onTableItemPress: function () {
+		onTableItemPress: function (oEvent) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("Detail");
+			var sPath = oEvent.getSource().getBindingContextPath();
+			oRouter.navTo("detail", {
+				path: sPath
+			});
+
 		}
 	});
-
 });

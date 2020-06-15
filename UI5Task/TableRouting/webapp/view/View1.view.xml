@@ -4,42 +4,41 @@
 		<pages>
 			<Page title="Таблица ">
 				<content>
-					<Toolbar width="100%" id="toolbar1">
-						<content>
-							<Bar id="bar0"/>
+					<Toolbar width="100%" id="toolbar1_1592216345512">
+						<ToolbarSpacer/>
+						<content><PagingButton count="5" id="button0" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"/>
 						</content>
 					</Toolbar>
-					<Table id="table0"
-						items="{path:'/Invoices',parameters:{select:'Address,City,Region,Country,ProductName,ProductID'},sorter:[{path:'ShipName',descending:false}]}"
-						noDataText="Drop column list items here and columns in the area above" growingThreshold="5" growing="true">
+					<Table id="table0" items="{/Orders}" noDataText="No data" growingThreshold="5" growing="true">
 						<items>
 							<ColumnListItem counter="0" id="item1" type="Navigation" press="onTableItemPress">
 								<cells>
-									<Text id="text5" maxLines="0" text="{Country}"/>
-									<Text id="text6" maxLines="0" text="{City}"/>
-									<Text id="text7" maxLines="0" text="{ProductName}"/>
+									<Text id="text5" maxLines="0" text="{CustomerID}"/>
+									<Text id="text6" maxLines="0" text="{ShipCity}"/>
+									<Text id="text7" maxLines="0" text="{ShipAddress}"/>
 								</cells>
 							</ColumnListItem>
 						</items>
 						<columns>
 							<Column id="column0">
 								<header>
-									<Label id="label0" text="{i18n>country}"/>
+									<Label id="label0" text="CustomerId"/>
 								</header>
 							</Column>
 							<Column id="column1">
 								<header>
-									<Label id="label1" text="{i18n>city}"/>
+									<Label id="label1" text="ShipCity"/>
 								</header>
 							</Column>
 							<Column id="column2">
 								<header>
-									<Label id="label2" text="{i18n>productName}"/>
+									<Label id="label2" text="ShipAddress"/>
 								</header>
 							</Column>
 						</columns>
 					</Table>
 				</content>
+				<footer></footer>
 			</Page>
 		</pages>
 	</App>
