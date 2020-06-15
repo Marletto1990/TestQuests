@@ -92,9 +92,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -104,19 +106,22 @@
 				"viewPath": "QuickStartApplication.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
-		        "bypassed": {
-		          "target": "notFound"
-		        }
+				"bypassed": {
+					"target": "notFound"
+				}
 			},
-			"routes": [{
-				"pattern": "",
-				"name": "View1",
-				"target": "View1"
-			}, {
-				"pattern": "Detail",
-				"name": "Detail",
-				"target": "Detail"
-			}],
+			"routes": [
+				{
+					"pattern": "",
+					"name": "View1",
+					"target": "View1"
+				},
+				{
+					"pattern": "Detail",
+					"name": "detail",
+					"target": "detail"
+				}
+			],
 			"targets": {
 				"View1": {
 					"viewType": "XML",
@@ -125,7 +130,7 @@
 					"viewName": "View1",
 					"viewLevel": 1
 				},
-				"Detail": {
+				"detail": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearAggregation": true,
