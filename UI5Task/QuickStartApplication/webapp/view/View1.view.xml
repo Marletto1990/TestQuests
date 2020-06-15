@@ -1,0 +1,46 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="QuickStartApplication.controller.View1">
+	<App id="idAppControl" pages="{path:'/Invoices',parameters:{select:'City,Region,Country,CustomerName,OrderID,OrderDate'}}">
+		<pages>
+			<Page title="Таблица ">
+				<content>
+					<Toolbar width="100%" id="toolbar1">
+						<content>
+							<Bar id="bar0"/>
+						</content>
+					</Toolbar>
+					<Table id="table0"
+						items="{path:'/Invoices',parameters:{select:'Address,City,Region,Country,ProductName,ProductID'},sorter:[{path:'ShipName',descending:false}]}"
+						noDataText="Drop column list items here and columns in the area above" growingThreshold="5" growing="true">
+						<items>
+							<ColumnListItem counter="0" id="item1" type="Navigation" press="onTableItemPress">
+								<cells>
+									<Text id="text5" maxLines="0" text="{Country}"/>
+									<Text id="text6" maxLines="0" text="{City}"/>
+									<Text id="text7" maxLines="0" text="{ProductName}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<columns>
+							<Column id="column0">
+								<header>
+									<Label id="label0" text="{i18n>country}"/>
+								</header>
+							</Column>
+							<Column id="column1">
+								<header>
+									<Label id="label1" text="{i18n>city}"/>
+								</header>
+							</Column>
+							<Column id="column2">
+								<header>
+									<Label id="label2" text="{i18n>productName}"/>
+								</header>
+							</Column>
+						</columns>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
