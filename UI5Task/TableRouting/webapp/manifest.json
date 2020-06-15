@@ -52,7 +52,7 @@
 		},
 		"supportedThemes": [
 			"sap_hcb",
-			"sap_bluecrystal"
+			"sap_fiori3"
 		]
 	},
 	"sap.ui5": {
@@ -117,7 +117,7 @@
 					"target": "View1"
 				},
 				{
-					"pattern": "Detail",
+					"pattern": "Detail/{OrderId}",
 					"name": "detail",
 					"target": "detail"
 				}
@@ -126,14 +126,12 @@
 				"View1": {
 					"viewType": "XML",
 					"transition": "slide",
-					"clearAggregation": true,
 					"viewName": "View1",
 					"viewLevel": 1
 				},
 				"detail": {
 					"viewType": "XML",
 					"transition": "slide",
-					"clearAggregation": true,
 					"viewName": "Detail",
 					"viewLevel": 2
 				},

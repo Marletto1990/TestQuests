@@ -10,9 +10,9 @@ sap.ui.define([
 		},
 		onTableItemPress: function (oEvent) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			var sPath = oEvent.getSource().getBindingContextPath();
+			var sOrderId = oEvent.getSource().getBindingContext().getProperty('OrderID');
 			oRouter.navTo("detail", {
-				path: sPath
+				OrderId: sOrderId
 			});
 
 		}

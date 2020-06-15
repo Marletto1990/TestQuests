@@ -3,14 +3,18 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 	return Controller.extend("QuickStartApplication.controller.Detail", {
 		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.getRoute("detail").attachMatched(function (oEvent) {
-				//var sPath = oEvent.getParameter("arguments").path;
-				//this.getView().bindElement('/Order_Details(OrderID=10436,ProductID=75)');
-			}, this);
+			oRouter.getRoute("detail").attachPatternMatched(this._onRouteMatched, this);
 		},
-		/**
-		 *@memberOf QuickStartApplication.controller.Detail
-		 */
+		_onRouteMatched: function (oEvent) {
+			var sOrderId = oEvent.getParameter("arguments").OrderId;
+			this.getView().bindElement({
+				path: '/Orders(' + sOrderId + ')',
+				parameters: {
+					expand: 'Order_Details'
+				}
+
+			});
+		},
 		action: function (oEvent) {
 			var that = this;
 			var actionParameters = JSON.parse(oEvent.getSource().data("wiring").replace(/'/g, "\""));
@@ -42,5 +46,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 				}
 			}
 		}
+
 	});
 });
